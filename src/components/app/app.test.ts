@@ -1,9 +1,9 @@
-import { Manga } from "../../models/manga";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { App } from "./App";
+App;
 describe("Given the ", () => {
   test("Then it should ", () => {
-    const a = 1;
-    const b = 1;
-    const result = a + b;
-    expect(result).toBe(2);
+    expect(screen.getByRole("heading")).toBeInTheDocument();
   });
 });
