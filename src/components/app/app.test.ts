@@ -1,3 +1,4 @@
+import { Manga } from "../../models/manga";
 describe("Given the ", () => {
   test("Then it should ", () => {
     const a = 1;
