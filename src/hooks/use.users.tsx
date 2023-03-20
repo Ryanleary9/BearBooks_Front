@@ -3,7 +3,7 @@ import { UserRepo } from "../services/users.api.repo";
 import { login, register } from "../reducers/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { debug } from "console";
+
 export function useUser(repo: UserRepo) {
   const users = useSelector((state: RootState) => state.users);
   const dispatch = useDispatch<AppDispatch>();
