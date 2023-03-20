@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useMemo } from "react";
+import { SyntheticEvent, useMemo } from "react";
 import { UserStructure } from "../../models/user";
 import { useUser } from "../../hooks/use.users";
 import { UserRepo } from "../../services/users.api.repo";
