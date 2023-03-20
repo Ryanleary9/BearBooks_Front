@@ -1,4 +1,4 @@
-import { ServerResponse, UserStructure } from "../models/user";
+import { UserStructure } from "../models/user";
 
 export interface Repo<U> {
   loginUser(info: Partial<UserStructure>): Promise<U>;
