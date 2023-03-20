@@ -1,23 +1,17 @@
 import { Manga } from "./manga";
 
-export type LoginData = {
+export type UserStructure = {
+  id: string;
+  name?: string;
+  surname?: string;
   email: string;
   passwd: string;
+  pfp?: string;
+  role?: string;
+  kart?: Manga[];
+  token?: string;
 };
 
-export type RegisterData = LoginData & {
-  name: string;
-  surname: string;
-  pfp: string;
-};
-
-export type ProtoUser = RegisterData & {
-  kart: Manga[];
-};
-
-export type User = { id: string } & ProtoUser;
-
-export type LoginPassed = {
-  token: string;
-  user: User;
+export type ServerResponse = {
+  results: UserStructure[];
 };
