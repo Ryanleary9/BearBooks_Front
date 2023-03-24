@@ -1,13 +1,15 @@
 import { Manga } from "./manga";
 
+type Role = "user" | "admin";
+
 export type UserStructure = {
-  id: string;
+  id?: string;
   name?: string;
   surname?: string;
   email: string;
   passwd: string;
   pfp?: string;
-  role?: string;
+  role?: Role;
   kart?: Manga[];
   token?: string;
 };
