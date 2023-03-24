@@ -1,5 +1,4 @@
 import { Manga } from "../../models/manga";
-import { UserStructure } from "../../models/user";
 
 export interface RepoManga<M> {
   getAllMangas(token: string): Promise<M>;
