@@ -3,22 +3,37 @@ import { UserRepo } from "./users.api.repo";
 describe("Given the login method is used ", () => {
   let repo = new UserRepo();
 
+  const FetchOK = async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue({}),
+    });
+  };
+  const FetchNoOK = async () => {
+    global.fetch = jest.fn().mockResolvedValue("error");
+  };
+
+  const mockUserOK = {
+    id: "1",
+    email: "asdasd@es.es",
+    passwd: "asda",
+  };
+
   describe("When ", () => {
     test("Then it should ", async () => {
       const mockValue = {};
 
-      global.fetch = jest.fn().mockResolvedValue({
-        ok: true,
-        json: jest.fn().mockResolvedValue(mockValue),
-      });
+      FetchOK();
 
       const results = await repo.loginUser({});
       expect(results).toEqual(mockValue);
     });
     test("Then it should ", () => {
-      global.fetch = jest.fn().mockResolvedValue("Error");
+      FetchNoOK();
       const results = repo.loginUser({
-        email: "asda@es.es",
+        id: "1",
+        email: "asdasd@es.es",
+        passwd: "asda",
       });
       expect(results).rejects.toThrow();
     });
@@ -27,22 +42,15 @@ describe("Given the login method is used ", () => {
     test("Then it should ", async () => {
       const mockValue = {};
 
-      global.fetch = jest.fn().mockResolvedValue({
-        ok: true,
-        json: jest.fn().mockResolvedValue(mockValue),
-      });
+      FetchOK();
 
-      const results = await repo.registerUser({
-        id: "1",
-        email: "asdasd@es.es",
-        passwd: "asda",
-      });
+      const results = await repo.registerUser(mockUserOK);
       expect(results).toEqual(mockValue);
     });
     test("Then it should ", () => {
-      global.fetch = jest.fn().mockResolvedValue({ ok: false });
+      FetchNoOK();
       const results = repo.registerUser({
-        id: "2",
+        id: "1",
         email: "asdasd@es.es",
         passwd: "asda",
       });
