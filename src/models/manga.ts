@@ -8,3 +8,7 @@ export type Manga = {
   price: number;
   firstChap: string[];
 };
+
+export type MangaServerResponse = {
+  results: Manga[];
+};
