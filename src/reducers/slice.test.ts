@@ -26,7 +26,8 @@ describe("Given the userSlice", () => {
         payload: userMock,
       };
       const element = userReducer(mockInitialState, mockLoginAction);
-      expect(element.userLogged).toEqual(userMock);
+      expect(element.loggedUser).toEqual({});
+      expect(element.userLogged).toEqual({ token: userMock });
     });
   });
   describe("When the register method is called ", () => {
