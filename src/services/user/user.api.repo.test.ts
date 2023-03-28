@@ -25,6 +25,8 @@ describe("Given the login method is used ", () => {
     kart: [],
   };
 
+  const id = "123";
+
   describe("When ", () => {
     test("Then it should ", async () => {
       const mockValue = {};
@@ -36,14 +38,7 @@ describe("Given the login method is used ", () => {
     });
     test("Then it should ", () => {
       FetchNoOK();
-      const results = repo.create(
-        {
-          id: "1",
-          email: "asdasd@es.es",
-          passwd: "asda",
-        },
-        "login"
-      );
+      const results = repo.create(mockUserOK, "login");
       expect(results).rejects.toThrow();
     });
   });
@@ -58,14 +53,7 @@ describe("Given the login method is used ", () => {
     });
     test("Then it should ", () => {
       FetchNoOK();
-      const results = repo.create(
-        {
-          id: "1",
-          email: "asdasd@es.es",
-          passwd: "asda",
-        },
-        "register"
-      );
+      const results = repo.create(mockUserOK, "register");
       expect(results).rejects.toThrowError();
     });
   });
@@ -76,12 +64,12 @@ describe("Given the login method is used ", () => {
 
       FetchOK();
 
-      const results = await repo.kartActions(mockUserKartOK, "add", "123");
+      const results = await repo.kartActions(mockUserKartOK, "add", id);
       expect(results).toEqual(mockValue);
     });
     test("Then if it cant fetch the backend it should throw an error ", () => {
       FetchNoOK();
-      const results = repo.kartActions(mockUserKartOK, "add", "123");
+      const results = repo.kartActions(mockUserKartOK, "add", id);
       expect(results).rejects.toThrow();
     });
   });
@@ -92,12 +80,12 @@ describe("Given the login method is used ", () => {
 
       FetchOK();
 
-      const results = await repo.kartActions(mockUserKartOK, "delete", "123");
+      const results = await repo.kartActions(mockUserKartOK, "delete", id);
       expect(results).toEqual(mockValue);
     });
-    test("Then if it cant fetch the backend it should throw an error ", () => {
+    test("Then if it cant fetch the backend of the delete method it should throw an error ", () => {
       FetchNoOK();
-      const results = repo.kartActions(mockUserKartOK, "delete", "123");
+      const results = repo.kartActions(mockUserKartOK, "delete", id);
       expect(results).rejects.toThrow();
     });
   });
