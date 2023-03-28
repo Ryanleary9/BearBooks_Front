@@ -7,8 +7,13 @@ export class UserRepo implements Repo<ServerResponse> {
     this.url = "http://localhost:4500/users";
   }
 
-  async loginUser(user: Partial<UserStructure>): Promise<ServerResponse> {
-    const resp = await fetch(this.url + "/login", {
+  async create(
+    user: Partial<UserStructure>,
+    path: string
+  ): Promise<ServerResponse> {
+    const url = this.url + "/" + path;
+
+    const resp = await fetch(url, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -23,20 +28,25 @@ export class UserRepo implements Repo<ServerResponse> {
     return data;
   }
 
-  async registerUser(user: UserStructure): Promise<ServerResponse> {
-    const response = await fetch(this.url + "/register", {
-      method: "POST",
-      body: JSON.stringify(user),
+  async kartActions(
+    kart: Partial<UserStructure>,
+    path: string,
+    mangaID: string
+  ): Promise<ServerResponse> {
+    const url = this.url + "/" + path + "/" + mangaID;
+
+    const resp = await fetch(url, {
+      method: "PATCH",
+      body: JSON.stringify(kart),
       headers: {
         "Content-type": "application/json",
       },
     });
 
-    if (!response.ok)
-      throw new Error(`Error http: ${response.status} ${response.statusText}`);
+    if (!resp.ok)
+      throw new Error(`Error http: ${resp.status} ${resp.statusText}`);
 
-    const data = (await response.json()) as ServerResponse;
-    console.log("REPO", data);
+    const data = (await resp.json()) as ServerResponse;
     return data;
   }
 }
