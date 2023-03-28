@@ -37,19 +37,20 @@ export class MangaRepo implements RepoManga<MangaServerResponse> {
     return mangaData;
   }
 
-  async createManga(
-    token: string,
-    manga: Partial<Manga>
-  ): Promise<MangaServerResponse> {
+  async createManga(token: string, manga: Manga): Promise<MangaServerResponse> {
     const url = this.url + "/add";
 
     const resp = await fetch(url, {
       method: "POST",
       body: JSON.stringify(manga),
-      headers: { Authorization: "Bearer" + token },
+      headers: {
+        "Content-type": "application/json",
+        Authorization: "Bearer " + token,
+      },
     });
 
     const mangaData = (await resp.json()) as MangaServerResponse;
+    console.log("REPO Manga data", mangaData);
     return mangaData;
   }
 
@@ -59,11 +60,15 @@ export class MangaRepo implements RepoManga<MangaServerResponse> {
     manga: Partial<Manga>
   ): Promise<MangaServerResponse> {
     const url = this.url + "/update/" + mangaID;
+    console.log(url);
 
     const resp = await fetch(url, {
       method: "PATCH",
       body: JSON.stringify(manga),
-      headers: { Authorization: "Bearer" + token },
+      headers: {
+        "Content-type": "application/json",
+        Authorization: "Bearer " + token,
+      },
     });
 
     if (!resp.ok)
@@ -78,7 +83,7 @@ export class MangaRepo implements RepoManga<MangaServerResponse> {
 
     const resp = await fetch(url, {
       method: "DELETE",
-      headers: { Authorization: "Bearer" + token },
+      headers: { Authorization: "Bearer " + token },
     });
 
     if (!resp.ok)
