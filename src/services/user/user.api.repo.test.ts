@@ -18,6 +18,12 @@ describe("Given the login method is used ", () => {
     email: "asdasd@es.es",
     passwd: "asda",
   };
+  const mockUserKartOK = {
+    id: "1",
+    email: "asdasd@es.es",
+    passwd: "asda",
+    kart: [],
+  };
 
   describe("When ", () => {
     test("Then it should ", async () => {
@@ -25,16 +31,19 @@ describe("Given the login method is used ", () => {
 
       FetchOK();
 
-      const results = await repo.loginUser({});
+      const results = await repo.create(mockUserOK, "login");
       expect(results).toEqual(mockValue);
     });
     test("Then it should ", () => {
       FetchNoOK();
-      const results = repo.loginUser({
-        id: "1",
-        email: "asdasd@es.es",
-        passwd: "asda",
-      });
+      const results = repo.create(
+        {
+          id: "1",
+          email: "asdasd@es.es",
+          passwd: "asda",
+        },
+        "login"
+      );
       expect(results).rejects.toThrow();
     });
   });
@@ -44,17 +53,52 @@ describe("Given the login method is used ", () => {
 
       FetchOK();
 
-      const results = await repo.registerUser(mockUserOK);
+      const results = await repo.create(mockUserOK, "register");
       expect(results).toEqual(mockValue);
     });
     test("Then it should ", () => {
       FetchNoOK();
-      const results = repo.registerUser({
-        id: "1",
-        email: "asdasd@es.es",
-        passwd: "asda",
-      });
+      const results = repo.create(
+        {
+          id: "1",
+          email: "asdasd@es.es",
+          passwd: "asda",
+        },
+        "register"
+      );
       expect(results).rejects.toThrowError();
+    });
+  });
+
+  describe("When add to kart method is used", () => {
+    test("Then it should add a manga to the kart", async () => {
+      const mockValue = {};
+
+      FetchOK();
+
+      const results = await repo.kartActions(mockUserKartOK, "add", "123");
+      expect(results).toEqual(mockValue);
+    });
+    test("Then if it cant fetch the backend it should throw an error ", () => {
+      FetchNoOK();
+      const results = repo.kartActions(mockUserKartOK, "add", "123");
+      expect(results).rejects.toThrow();
+    });
+  });
+
+  describe("When remove from kart method is used", () => {
+    test("Then it should add a manga to the kart", async () => {
+      const mockValue = {};
+
+      FetchOK();
+
+      const results = await repo.kartActions(mockUserKartOK, "delete", "123");
+      expect(results).toEqual(mockValue);
+    });
+    test("Then if it cant fetch the backend it should throw an error ", () => {
+      FetchNoOK();
+      const results = repo.kartActions(mockUserKartOK, "delete", "123");
+      expect(results).rejects.toThrow();
     });
   });
 });
