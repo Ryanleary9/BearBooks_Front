@@ -1,7 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router";
-import { MenuOption } from "../app/app";
+
 import Form from "../form/form";
+import { MenuOption } from "../App/App";
 
 const LoginPage = lazy(() => import("../login/login"));
 const HomePage = lazy(() => import("../home/home"));
