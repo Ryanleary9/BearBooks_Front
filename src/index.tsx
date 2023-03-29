@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { store } from "./store/store";
 import { BrowserRouter as Router } from "react-router-dom";
-import Home from "./components/home/home";
+import App from "./components/app/app";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <Home></Home>
+        <App />
       </Router>
     </Provider>
   </React.StrictMode>
