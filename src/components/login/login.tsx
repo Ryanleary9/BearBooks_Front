@@ -4,6 +4,7 @@ import { useUser } from "../../hooks/user/use.users";
 import "./login.scss";
 import { UserRepo } from "../../services/user/users.api.repo";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 export default function Login() {
   const userRepo = useMemo(() => new UserRepo(), []);
 
@@ -23,6 +24,14 @@ export default function Login() {
     userLogin(userLog);
     formData.reset();
     navigate("/home");
+    Swal.fire({
+      position: "top-right",
+      icon: "success",
+      width: 400,
+      title: "Login succesfull",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (
