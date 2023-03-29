@@ -19,7 +19,6 @@ export default function Login() {
       passwd: inputs[1].value,
     };
     userLogin(userLog);
-    console.log(userLog);
     formData.reset();
   };
 

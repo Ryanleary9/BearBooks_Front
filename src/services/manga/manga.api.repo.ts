@@ -50,7 +50,6 @@ export class MangaRepo implements RepoManga<MangaServerResponse> {
     });
 
     const mangaData = (await resp.json()) as MangaServerResponse;
-    console.log("REPO Manga data", mangaData);
     return mangaData;
   }
 
@@ -60,8 +59,6 @@ export class MangaRepo implements RepoManga<MangaServerResponse> {
     manga: Partial<Manga>
   ): Promise<MangaServerResponse> {
     const url = this.url + "/update/" + mangaID;
-    console.log(url);
-
     const resp = await fetch(url, {
       method: "PATCH",
       body: JSON.stringify(manga),

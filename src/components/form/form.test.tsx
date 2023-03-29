@@ -9,6 +9,7 @@ import { userReducer } from "../../reducers/slice";
 import { UserStructure } from "../../models/user";
 import { Manga } from "../../models/manga";
 import { useManga } from "../../hooks/manga/use.manga";
+import { storeMockError } from "../../mocks/mocks";
 
 const paramsMock = { id: "1" };
 
@@ -102,33 +103,6 @@ describe("Given the ", () => {
     deleteMangas: jest.fn(),
   } as unknown as MangaRepo;
 
-  const storeMock2 = configureStore({
-    reducer: { mangas: mangaReducer, users: userReducer },
-    preloadedState: {
-      users: {
-        loggedUser: {} as UserStructure,
-        userLogged: null,
-        token: "",
-        users: [],
-      },
-      mangas: {
-        mangas: [
-          {
-            author: "kentaro",
-            category: "seinen",
-            description: "berserk desc",
-            firstChap: ["first chap"],
-            id: "1",
-            image: "image",
-            name: "Berserk",
-            price: 14,
-          },
-        ],
-        manga: {} as Manga,
-        mangaId: "1",
-      },
-    },
-  });
   beforeEach(async () => {
     (useManga as jest.Mock).mockReturnValue({
       mangaState: { mangas: [{ name: "adsasd" }] },
@@ -139,7 +113,7 @@ describe("Given the ", () => {
 
     await act(async () => {
       render(
-        <Provider store={storeMock2}>
+        <Provider store={storeMockError}>
           <Router>
             <Form prop={false}></Form>
           </Router>

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Route, MemoryRouter as Router } from "react-router";
+import { MemoryRouter as Router } from "react-router";
 import { Card } from "./card";
 describe("Given the ", () => {
   const mockManga = {
@@ -20,7 +20,7 @@ describe("Given the ", () => {
   );
   describe("When ", () => {
     test("Then it should ", async () => {
-      await screen.getByText("Berserk");
+      screen.getByText("Berserk");
     });
   });
 });

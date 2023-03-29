@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router";
 import { MangaRepo } from "../../services/manga/manga.api.repo";
 import { useManga } from "../../hooks/manga/use.manga";

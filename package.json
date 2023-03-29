@@ -42,7 +42,8 @@
       "<rootDir>/src/reportWebVitals.ts",
       "<rootDir>/src/index.ts",
       "<rootDir>/src/models",
-      "<rootDir>/src/services/*/*.*.interface.*"
+      "<rootDir>/src/services/*/*.*.interface.*",
+      "src/mocks/mocks.ts"
     ]
   },
   "browserslist": {

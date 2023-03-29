@@ -113,9 +113,10 @@ export default function Form({ prop }: ConditionalLoading) {
       category: inputs2[3].value,
       price: parseFloat(inputs2[4].value),
     };
-    const coverImage = (inputs2[5] as unknown as HTMLFormElement).files?.item(
-      0
-    );
+    // Next implementation
+    // const coverImage = (inputs2[5] as unknown as HTMLFormElement).files?.item(
+    //   0
+    // );
     mangaUpdate(userState.userLogged, mangaState.mangaId, newManga2);
     formData.reset();
 

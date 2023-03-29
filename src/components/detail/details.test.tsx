@@ -1,14 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { Manga } from "../../models/manga";
-import { UserStructure } from "../../models/user";
-import { mangaReducer } from "../../reducers/manga.slice";
-import { userReducer } from "../../reducers/slice";
 import { MangaRepo } from "../../services/manga/manga.api.repo";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { useManga } from "../../hooks/manga/use.manga";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import Details from "./details";
+import { mockMangas, storeMock } from "../../mocks/mocks";
 
 let paramsMock = { id: "1" };
 
@@ -28,58 +24,9 @@ describe("Given the ", () => {
     deleteMangas: jest.fn(),
   } as unknown as MangaRepo;
 
-  const storeMock = configureStore({
-    reducer: { mangas: mangaReducer, users: userReducer },
-    preloadedState: {
-      users: {
-        loggedUser: {} as UserStructure,
-        userLogged: {
-          email: "asdadasd",
-          passwd: "asdasdad",
-          role: "admin",
-          token: "asdadasd",
-        },
-        token: "",
-        users: [],
-      },
-      mangas: {
-        mangas: [
-          {
-            author: "kentaro",
-            category: "seinen",
-            description: "berserk desc",
-            firstChap: ["first chap"],
-            id: "1",
-            image: "image",
-            name: "Berserk",
-            price: 14,
-          },
-        ],
-        manga: {} as Manga,
-        mangaId: "1",
-      },
-    },
-  });
-
   beforeEach(async () => {
     (useManga as jest.Mock).mockReturnValue({
-      //adminState : {},
-      mangaState: {
-        mangas: [
-          {
-            author: "kentaro",
-            category: "seinen",
-            description: "berserk desc",
-            firstChap: ["first chap"],
-            id: "1",
-            image: "image",
-            name: "Berserk",
-            price: 14,
-          },
-        ],
-        mangaId: "1",
-      },
-      //getMangas: jest.fn(),
+      mangaState: mockMangas,
       getMangaOne: jest.fn(),
       mangaCreate: jest.fn(),
       mangaUpdate: jest.fn(),

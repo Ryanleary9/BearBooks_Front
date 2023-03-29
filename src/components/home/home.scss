@@ -3,6 +3,8 @@
   background-color: grey;
   background-size: 100%;
   height: 70vh;
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
 .cards {
@@ -10,9 +12,4 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.home-page {
-  text-align: center;
-  padding-bottom: 2rem;
 }
