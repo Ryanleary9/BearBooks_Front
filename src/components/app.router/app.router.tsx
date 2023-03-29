@@ -2,8 +2,6 @@ import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router";
 import Form from "../form/form";
 import { MenuOption } from "../app/app";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 
 const LoginPage = lazy(() => import("../login/login"));
 const HomePage = lazy(() => import("../home/home"));

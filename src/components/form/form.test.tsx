@@ -102,14 +102,6 @@ describe("Given the ", () => {
 });
 
 describe("Given the ", () => {
-  const repoMock = {
-    getAllMangas: jest.fn(),
-    getOneMangas: jest.fn(),
-    createMangas: jest.fn(),
-    updateMangas: jest.fn(),
-    deleteMangas: jest.fn(),
-  } as unknown as MangaRepo;
-
   beforeEach(async () => {
     (useManga as jest.Mock).mockReturnValue({
       adminState: { userLogged: { token: "asdasd" } },
