@@ -1,19 +1,21 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { store } from "../../store/store";
 import { MemoryRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import App from "./App";
+import App from "./app";
 
 describe("Given the ", () => {
   test("Then it should ", async () => {
-    render(
-      <Router>
-        <Provider store={store}>
-          <App></App>
-        </Provider>
-      </Router>
-    );
+    await act(async () => {
+      render(
+        <Router>
+          <Provider store={store}>
+            <App></App>
+          </Provider>
+        </Router>
+      );
+    });
 
-    expect(screen.getByRole("heading")).toBeInTheDocument();
+    expect(screen.getByAltText("Bear Books logo")).toBeInTheDocument();
   });
 });
