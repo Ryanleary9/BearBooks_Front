@@ -3,8 +3,6 @@ import { AppRouter } from "../app.router/app.router";
 import { Header } from "../header/header";
 import { Menu } from "../menu/menu";
 import "./app.scss";
-import { RootState } from "../../store/store";
-
 export type MenuOption = {
   label?: string;
   path: string;

@@ -1,8 +1,6 @@
 import { useEffect, useMemo } from "react";
 import "./home.scss";
 import { MangaRepo } from "../../services/manga/manga.api.repo";
-import { RootState } from "../../store/store";
-import { useSelector } from "react-redux";
 import { useManga } from "../../hooks/manga/use.manga";
 import { Manga } from "../../models/manga";
 import { Card } from "../card/card";
