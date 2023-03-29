@@ -18,8 +18,7 @@ export default function App() {
       <Header>
         <Menu options={menuOptions}></Menu>
       </Header>
-      {/* <AppRouter menuOptions={menuOptions} /> */}
-      <AppRouter />
+      <AppRouter menuOptions={menuOptions} />
     </div>
   );
 }

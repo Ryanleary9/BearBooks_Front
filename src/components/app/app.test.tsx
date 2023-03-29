@@ -2,7 +2,7 @@ import { render, screen, act } from "@testing-library/react";
 import { store } from "../../store/store";
 import { MemoryRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import App from "./App";
+import App from "./app";
 
 describe("Given the ", () => {
   test("Then it should ", async () => {
