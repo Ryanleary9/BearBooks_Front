@@ -16,6 +16,31 @@ export const mockUsers = {
   users: [],
 };
 
+export const mockUsersAdmin = {
+  loggedUser: {
+    email: "asdadasd",
+    passwd: "asdasdad",
+    role: "admin",
+  } as UserStructure,
+  userLogged: {
+    token: "asdadasd",
+  },
+  token: "",
+  users: [],
+};
+export const mockUsersUser = {
+  loggedUser: {
+    email: "asdadasd",
+    passwd: "asdasdad",
+    role: "user",
+  } as UserStructure,
+  userLogged: {
+    token: "asdadasd",
+  },
+  token: "",
+  users: [],
+};
+
 export const mockMangas = {
   mangas: [
     {
@@ -32,6 +57,16 @@ export const mockMangas = {
   manga: {} as Manga,
   mangaId: "1",
 };
+
+export const storeMockAdmin = configureStore({
+  reducer: { mangas: mangaReducer, users: userReducer },
+  preloadedState: { users: mockUsersAdmin, mangas: mockMangas },
+});
+
+export const storeMockUser = configureStore({
+  reducer: { mangas: mangaReducer, users: userReducer },
+  preloadedState: { users: mockUsersUser, mangas: mockMangas },
+});
 
 export const storeMock = configureStore({
   reducer: { mangas: mangaReducer, users: userReducer },
