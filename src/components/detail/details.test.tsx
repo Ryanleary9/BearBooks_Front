@@ -4,7 +4,7 @@ import { useManga } from "../../hooks/manga/use.manga";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import Details from "./details";
-import { mockMangas, storeMock } from "../../mocks/mocks";
+import { mockMangas, storeMock, storeMockAdmin } from "../../mocks/mocks";
 
 let paramsMock = { id: "1" };
 
@@ -23,34 +23,66 @@ describe("Given the ", () => {
     updateMangas: jest.fn(),
     deleteMangas: jest.fn(),
   } as unknown as MangaRepo;
+  describe("first", () => {
+    beforeEach(async () => {
+      (useManga as jest.Mock).mockReturnValue({
+        mangaState: mockMangas,
+        getMangaOne: jest.fn(),
+        mangaCreate: jest.fn(),
+        mangaUpdate: jest.fn(),
+        mangaDelete: jest
+          .fn()
+          .mockImplementation(async () => Promise.resolve()),
+      });
 
-  beforeEach(async () => {
-    (useManga as jest.Mock).mockReturnValue({
-      mangaState: mockMangas,
-      getMangaOne: jest.fn(),
-      mangaCreate: jest.fn(),
-      mangaUpdate: jest.fn(),
-      mangaDelete: jest.fn().mockImplementation(async () => Promise.resolve()),
+      await act(async () => {
+        render(
+          <Provider store={storeMock}>
+            <Router>
+              <Details></Details>
+            </Router>
+          </Provider>
+        );
+      });
     });
 
-    await act(async () => {
-      render(
-        <Provider store={storeMock}>
-          <Router>
-            <Details></Details>
-          </Router>
-        </Provider>
-      );
+    test("Then it should ", async () => {
+      const data = await screen.findByAltText("Berserk");
+      expect(data).toBeInTheDocument();
     });
   });
 
-  test("Then it should ", async () => {
-    const data = await screen.findByAltText("Berserk");
-    expect(data).toBeInTheDocument();
-  });
-  test("Then it should ", async () => {
-    const data = await screen.findByText(/Delete/i);
-    await fireEvent.click(data);
-    expect(useManga(repoMock).mangaDelete).toHaveBeenCalled();
+  describe("should first", () => {
+    beforeEach(async () => {
+      (useManga as jest.Mock).mockReturnValue({
+        mangaState: mockMangas,
+        getMangaOne: jest.fn(),
+        mangaCreate: jest.fn(),
+        mangaUpdate: jest.fn(),
+        mangaDelete: jest
+          .fn()
+          .mockImplementation(async () => Promise.resolve()),
+      });
+
+      await act(async () => {
+        render(
+          <Provider store={storeMockAdmin}>
+            <Router>
+              <Details></Details>
+            </Router>
+          </Provider>
+        );
+      });
+    });
+
+    test("Then it should ", async () => {
+      const data = await screen.findByAltText("Berserk");
+      expect(data).toBeInTheDocument();
+    });
+    test("Then it should ", async () => {
+      const data = await screen.findByText(/Delete/i);
+      await fireEvent.click(data);
+      expect(useManga(repoMock).mangaDelete).toHaveBeenCalled();
+    });
   });
 });

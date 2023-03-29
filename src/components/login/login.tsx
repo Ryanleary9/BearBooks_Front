@@ -3,10 +3,12 @@ import { UserStructure } from "../../models/user";
 import { useUser } from "../../hooks/user/use.users";
 import "./login.scss";
 import { UserRepo } from "../../services/user/users.api.repo";
+import { useNavigate } from "react-router";
 export default function Login() {
   const userRepo = useMemo(() => new UserRepo(), []);
 
   const { userLogin } = useUser(userRepo);
+  const navigate = useNavigate();
 
   const handelSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -20,13 +22,14 @@ export default function Login() {
     };
     userLogin(userLog);
     formData.reset();
+    navigate("/home");
   };
 
   return (
     <>
       <span>
         <div className="access-card">
-          <h1>Login</h1>
+          <h1 className="create-title">Login</h1>
           <form onSubmit={handelSubmit} className="form-inputs">
             <label htmlFor="email">
               <input type="email" placeholder="Email" required id="email" />
