@@ -69,8 +69,8 @@ describe("Given the useUser hook ", () => {
       expect(repoMock.create).toHaveBeenCalled();
     });
   });
-  describe("When the register mehtod is called", () => {
-    test("Then it should use register method", async () => {
+  describe("When the register mehtod is called from slice", () => {
+    test("Then it should use register method from the repo", async () => {
       const component = await screen.findAllByRole("button");
       await act(async () => userEvent.click(component[1]));
       expect(repoMock.create).toHaveBeenCalled();
