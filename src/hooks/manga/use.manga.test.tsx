@@ -144,14 +144,14 @@ describe("Given the ", () => {
   });
   describe("When the deleteManga method called", () => {
     test("Then it should use deleteManga method", async () => {
-      const component = await screen.getByText(/del/i);
+      const component = screen.getByText(/del/i);
       await act(async () => userEvent.click(component));
       expect(repoMock.deleteManga).toHaveBeenCalled();
     });
   });
   describe("When the register mehtod is called", () => {
     test("Then it should use register method", async () => {
-      const component = await screen.getByText(/update/i);
+      const component = screen.getByText(/update/i);
       await act(async () => userEvent.click(component));
       expect(repoMock.updateManga).toHaveBeenCalled();
     });
