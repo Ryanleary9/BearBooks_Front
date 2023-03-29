@@ -1,5 +1,5 @@
-import { ServerResponse, UserStructure } from "../../models/user";
-import { Repo } from "./user.interface";
+import { ServerResponse, UserStructure } from "../../models/user.js";
+import { Repo } from "./user.interface.js";
 
 export class UserRepo implements Repo<ServerResponse> {
   url?: string;

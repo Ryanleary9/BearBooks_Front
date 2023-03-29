@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserStructure } from "../models/user";
+import { UserStructure } from "../models/user.js";
 
 export type State = {
   userLogged: any;

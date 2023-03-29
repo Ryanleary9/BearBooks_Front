@@ -1,12 +1,12 @@
 import { SyntheticEvent, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router";
-import { MangaRepo } from "../../services/manga/manga.api.repo";
-import { useManga } from "../../hooks/manga/use.manga";
-import { getOneManga } from "../../reducers/manga.slice";
+import { MangaRepo } from "../../services/manga/manga.api.repo.js";
+import { useManga } from "../../hooks/manga/use.manga.js";
+import { getOneManga } from "../../reducers/manga.slice.js";
 import "./details.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../store/store.js";
 
 export default function Details() {
   const { id } = useParams();

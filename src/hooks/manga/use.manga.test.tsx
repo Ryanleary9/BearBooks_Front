@@ -1,10 +1,10 @@
 import { act, render, screen } from "@testing-library/react";
-import { Manga } from "../../models/manga";
-import { useManga } from "./use.manga";
+import { Manga } from "../../models/manga.js";
+import { useManga } from "./use.manga.js";
 import { useSelector } from "react-redux";
 import userEvent from "@testing-library/user-event";
-import { MangaRepo } from "../../services/manga/manga.api.repo";
-import { UserStructure } from "../../models/user";
+import { MangaRepo } from "../../services/manga/manga.api.repo.js";
+import { UserStructure } from "../../models/user.js";
 
 jest.mock("../../firebase/firebase.manga");
 jest.mock("../../reducers/slice", () => ({

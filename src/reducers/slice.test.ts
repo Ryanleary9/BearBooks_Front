@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { UserStructure } from "../models/user";
-import { State, userReducer } from "./slice";
+import { UserStructure } from "../models/user.js";
+import { State, userReducer } from "./slice.js";
 
 const passwdMock = "dsad";
 

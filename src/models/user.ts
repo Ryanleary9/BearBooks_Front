@@ -1,4 +1,4 @@
-import { Manga } from "./manga";
+import { Manga } from "./manga.js";
 
 type Role = "user" | "admin";
 

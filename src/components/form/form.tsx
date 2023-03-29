@@ -1,10 +1,9 @@
 import { SyntheticEvent, useMemo } from "react";
-import { MangaRepo } from "../../services/manga/manga.api.repo";
-import { useManga } from "../../hooks/manga/use.manga";
-import { render } from "@testing-library/react";
-import { Manga } from "../../models/manga";
+import { MangaRepo } from "../../services/manga/manga.api.repo.js";
+import { useManga } from "../../hooks/manga/use.manga.js";
+import { Manga } from "../../models/manga.js";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../store/store.js";
 import { useNavigate } from "react-router";
 import "./form.scss";
 

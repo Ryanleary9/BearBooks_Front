@@ -1,5 +1,5 @@
-import { Manga } from "../../models/manga";
-import { MangaRepo } from "./manga.api.repo";
+import { Manga } from "../../models/manga.js";
+import { MangaRepo } from "./manga.api.repo.js";
 
 global.fetch = jest.fn().mockRejectedValue({});
 

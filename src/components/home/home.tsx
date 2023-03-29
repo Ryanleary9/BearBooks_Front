@@ -1,9 +1,9 @@
 import { useEffect, useMemo } from "react";
 import "./home.scss";
-import { MangaRepo } from "../../services/manga/manga.api.repo";
-import { useManga } from "../../hooks/manga/use.manga";
-import { Manga } from "../../models/manga";
-import { Card } from "../card/card";
+import { MangaRepo } from "../../services/manga/manga.api.repo.js";
+import { useManga } from "../../hooks/manga/use.manga.js";
+import { Manga } from "../../models/manga.js";
+import { Card } from "../card/card.js";
 export type CardProps = { children: JSX.Element };
 
 export default function Home() {

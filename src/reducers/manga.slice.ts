@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Manga } from "../models/manga";
+import { Manga } from "../models/manga.js";
 
 export type MangaState = {
   mangas: Manga[];

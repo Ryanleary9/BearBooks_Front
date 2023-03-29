@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "./firebase.config";
+import { firebaseConfig } from "./firebase.config.js";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { UserStructure } from "../models/user";
+import { UserStructure } from "../models/user.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

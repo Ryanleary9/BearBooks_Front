@@ -1,9 +1,9 @@
 import { act, render, screen } from "@testing-library/react";
-import { UserStructure } from "../../models/user";
+import { UserStructure } from "../../models/user.js";
 import { useSelector } from "react-redux";
 import userEvent from "@testing-library/user-event";
-import { useUser } from "./use.users";
-import { UserRepo } from "../../services/user/users.api.repo";
+import { useUser } from "./use.users.js";
+import { UserRepo } from "../../services/user/users.api.repo.js";
 jest.mock("../../firebase/firebase.user");
 jest.mock("../../reducers/slice", () => ({
   saveUser: jest.fn(),

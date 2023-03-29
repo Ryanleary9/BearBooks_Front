@@ -1,14 +1,14 @@
-import { MangaRepo } from "../../services/manga/manga.api.repo";
+import { MangaRepo } from "../../services/manga/manga.api.repo.js";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import Form from "./form";
+import Form from "./form.js";
 import { configureStore } from "@reduxjs/toolkit";
-import { mangaReducer } from "../../reducers/manga.slice";
-import { userReducer } from "../../reducers/slice";
-import { UserStructure } from "../../models/user";
-import { Manga } from "../../models/manga";
-import { useManga } from "../../hooks/manga/use.manga";
+import { mangaReducer } from "../../reducers/manga.slice.js";
+import { userReducer } from "../../reducers/slice.js";
+import { UserStructure } from "../../models/user.js";
+import { Manga } from "../../models/manga.js";
+import { useManga } from "../../hooks/manga/use.manga.js";
 
 const paramsMock = { id: "1" };
 

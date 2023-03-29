@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Route, MemoryRouter as Router } from "react-router";
-import { Card } from "./card";
+import { Card } from "./card.js";
 describe("Given the ", () => {
   const mockManga = {
     author: "kentaro",

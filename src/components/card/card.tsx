@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Manga } from "../../models/manga";
+import { Manga } from "../../models/manga.js";
 import "./card.scss";
 
 export type CardProps = {
