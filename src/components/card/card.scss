@@ -1,0 +1,19 @@
+.card-li {
+  background-color: #6482a0;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid white;
+  transition: transform 0.3s;
+}
+
+.card-li:hover {
+  transform: scale(1.2);
+}
+
+.card-image {
+  height: 12rem;
+  width: 10rem;
+}
