@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MangaState, mangaReducer } from "./manga.slice.js";
-import { Manga } from "../models/manga.js";
+import { MangaState, mangaReducer } from "./manga.slice";
+import { Manga } from "../models/manga";
 
 const mockManga: Manga = {
   author: "kentaro",

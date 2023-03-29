@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "../reducers/slice.js";
-import { mangaReducer } from "../reducers/manga.slice.js";
+import { userReducer } from "../reducers/slice";
+import { mangaReducer } from "../reducers/manga.slice";
 
 export const store = configureStore({
   reducer: {

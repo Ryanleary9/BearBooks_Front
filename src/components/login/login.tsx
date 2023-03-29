@@ -1,8 +1,8 @@
 import { SyntheticEvent, useMemo } from "react";
-import { UserStructure } from "../../models/user.js";
-import { useUser } from "../../hooks/user/use.users.js";
+import { UserStructure } from "../../models/user";
+import { useUser } from "../../hooks/user/use.users";
 import "./login.scss";
-import { UserRepo } from "../../services/user/users.api.repo.js";
+import { UserRepo } from "../../services/user/users.api.repo";
 export default function Login() {
   const userRepo = useMemo(() => new UserRepo(), []);
 

@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter as Router } from "react-router";
-import { store } from "../../store/store.js";
+import { store } from "../../store/store";
 import { Provider } from "react-redux";
-import { Header } from "./header.js";
-import { Menu } from "../menu/menu.js";
+import { Header } from "./header";
+import { Menu } from "../menu/menu";
 
 describe("Given the ", () => {
   const mockMenu = [

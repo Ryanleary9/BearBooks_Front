@@ -1,4 +1,4 @@
-import { MenuOption } from "../app/app.js";
+import { MenuOption } from "../app/app";
 import { Link } from "react-router-dom";
 import "./menu.scss";
 

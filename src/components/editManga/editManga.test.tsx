@@ -1,12 +1,12 @@
 import { screen, render } from "@testing-library/react";
-import EditManga from "./editManga.js";
-import Form from "../form/form.js";
+import EditManga from "./editManga";
+import Form from "../form/form";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
-import { Manga } from "../../models/manga.js";
-import { UserStructure } from "../../models/user.js";
-import { mangaReducer } from "../../reducers/manga.slice.js";
-import { userReducer } from "../../reducers/slice.js";
+import { Manga } from "../../models/manga";
+import { UserStructure } from "../../models/user";
+import { mangaReducer } from "../../reducers/manga.slice";
+import { userReducer } from "../../reducers/slice";
 import { configureStore } from "@reduxjs/toolkit";
 jest.mock("react-router-dom", () => ({
   ...(jest.requireActual("react-router-dom") as any),

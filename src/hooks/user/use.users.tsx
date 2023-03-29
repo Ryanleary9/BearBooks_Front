@@ -1,9 +1,9 @@
-import { UserStructure } from "../../models/user.js";
-import { login, register, saveUser } from "../../reducers/slice.js";
+import { UserStructure } from "../../models/user";
+import { login, register, saveUser } from "../../reducers/slice";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store.js";
-import { newImage } from "../../firebase/firebase.user.js";
-import { UserRepo } from "../../services/user/users.api.repo.js";
+import { AppDispatch, RootState } from "../../store/store";
+import { newImage } from "../../firebase/firebase.user";
+import { UserRepo } from "../../services/user/users.api.repo";
 
 export function useUser(repo: UserRepo) {
   const users = useSelector((state: RootState) => state.users);

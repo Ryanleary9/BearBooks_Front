@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store.js";
+import { AppDispatch, RootState } from "../../store/store";
 import {
   createManga,
   deleteManga,
@@ -7,10 +7,10 @@ import {
   getOneManga,
   setStateID,
   updateManga,
-} from "../../reducers/manga.slice.js";
-import { Manga } from "../../models/manga.js";
-import { MangaRepo } from "../../services/manga/manga.api.repo.js";
-import { newMangaImage } from "../../firebase/firebase.manga.js";
+} from "../../reducers/manga.slice";
+import { Manga } from "../../models/manga";
+import { MangaRepo } from "../../services/manga/manga.api.repo";
+import { newMangaImage } from "../../firebase/firebase.manga";
 import { useCallback } from "react";
 
 export function useManga(repo: MangaRepo) {

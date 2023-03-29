@@ -1,6 +1,6 @@
-import { AppRouter } from "../app.router/app.router.js";
-import { Header } from "../header/header.js";
-import { Menu } from "../menu/menu.js";
+import { AppRouter } from "../app.router/app.router";
+import { Header } from "../header/header";
+import { Menu } from "../menu/menu";
 import "./app.scss";
 export type MenuOption = {
   label?: string;

@@ -1,4 +1,4 @@
-import { UserRepo } from "./users.api.repo.js";
+import { UserRepo } from "./users.api.repo";
 
 describe("Given the login method is used ", () => {
   let repo = new UserRepo();

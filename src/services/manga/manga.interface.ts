@@ -1,4 +1,4 @@
-import { Manga } from "../../models/manga.js";
+import { Manga } from "../../models/manga";
 
 export interface RepoManga<M> {
   getAllMangas(token: string): Promise<M>;

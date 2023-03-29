@@ -1,5 +1,5 @@
-import { Manga, MangaServerResponse } from "../../models/manga.js";
-import { RepoManga } from "./manga.interface.js";
+import { Manga, MangaServerResponse } from "../../models/manga";
+import { RepoManga } from "./manga.interface";
 
 export class MangaRepo implements RepoManga<MangaServerResponse> {
   url: string;

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../../store/store.js";
+import { store } from "../../store/store";
 import { MemoryRouter as Router } from "react-router-dom";
-import Register from "./register.js";
+import Register from "./register";
 describe("Given the login component", () => {
   beforeEach(async () => {
     render(

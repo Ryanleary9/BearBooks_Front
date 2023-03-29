@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Home from "./home.js";
+import Home from "./home";
 import { act } from "react-dom/test-utils";
-import { useManga } from "../../hooks/manga/use.manga.js";
-import { Card } from "../card/card.js";
+import { useManga } from "../../hooks/manga/use.manga";
+import { Card } from "../card/card";
 
 // jest.mock("react", () => ({
 //   ...jest.requireActual("react"),
