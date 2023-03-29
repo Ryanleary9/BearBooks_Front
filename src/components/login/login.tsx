@@ -1,7 +1,8 @@
 import { SyntheticEvent, useMemo } from "react";
 import { UserStructure } from "../../models/user";
-import { useUser } from "../../hooks/use.users";
-import { UserRepo } from "../../services/users.api.repo";
+import { useUser } from "../../hooks/user/use.users";
+import "./login.scss";
+import { UserRepo } from "../../services/user/users.api.repo";
 export default function Login() {
   const userRepo = useMemo(() => new UserRepo(), []);
 
@@ -24,17 +25,29 @@ export default function Login() {
 
   return (
     <>
-      <h1>Login</h1>
-      <form onSubmit={handelSubmit}>
-        <label htmlFor="email">
-          <input type="email" placeholder="Email" required id="email" />
-        </label>
-        <label htmlFor="passwd">
-          <input type="password" placeholder="Password" required id="passwd" />
-        </label>
-
-        <button type="submit">enviar</button>
-      </form>
+      <span>
+        <div className="access-card">
+          <h1>Login</h1>
+          <form onSubmit={handelSubmit} className="form-inputs">
+            <label htmlFor="email">
+              <input type="email" placeholder="Email" required id="email" />
+            </label>
+            <label htmlFor="passwd">
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                id="passwd"
+              />
+            </label>
+            <span>
+              <button type="submit" className="login-button">
+                Login
+              </button>
+            </span>
+          </form>
+        </div>
+      </span>
     </>
   );
 }
