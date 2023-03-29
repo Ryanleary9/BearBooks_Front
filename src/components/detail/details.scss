@@ -1,0 +1,35 @@
+.detail-image {
+  height: 25rem;
+  width: 20rem;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3rem;
+  height: 30rem;
+  width: 60rem;
+  background-color: #6482a0;
+  border-radius: 20px 20px 20px 20px;
+  border: 2px solid white;
+}
+
+.outer-details {
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.edit-button {
+  width: 8rem;
+  height: 2rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.details-inner {
+  display: flex;
+  flex-direction: column;
+}
