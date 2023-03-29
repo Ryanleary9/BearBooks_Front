@@ -1,11 +1,8 @@
 import { act, render, screen } from "@testing-library/react";
 import { Manga } from "../../models/manga";
 import { useManga } from "./use.manga";
-import { configureStore } from "@reduxjs/toolkit";
-import { mangaReducer } from "../../reducers/manga.slice";
-import { Provider, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import userEvent from "@testing-library/user-event";
-import { userReducer } from "../../reducers/slice";
 import { MangaRepo } from "../../services/manga/manga.api.repo";
 import { UserStructure } from "../../models/user";
 

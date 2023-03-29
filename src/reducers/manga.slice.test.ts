@@ -1,5 +1,4 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { UserStructure } from "../models/user";
 import { MangaState, mangaReducer } from "./manga.slice";
 import { Manga } from "../models/manga";
 
