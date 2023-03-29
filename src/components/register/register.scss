@@ -1,0 +1,77 @@
+.register-form {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.form-inputs {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#email {
+  text-align: center;
+  height: 2rem;
+  width: 15rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#passwd {
+  text-align: center;
+  height: 2rem;
+  width: 15rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#email::placeholder {
+  color: white;
+}
+
+#passwd::placeholder {
+  color: white;
+}
+
+#name {
+  text-align: center;
+  height: 2rem;
+  width: 15rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#surname {
+  text-align: center;
+  height: 2rem;
+  width: 15rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#name::placeholder {
+  color: white;
+}
+
+#surname::placeholder {
+  color: white;
+}
+
+.register-button {
+  width: 8rem;
+  height: 2rem;
+  backdrop-filter: blur(10px);
+  background-color: #fff2;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+}
