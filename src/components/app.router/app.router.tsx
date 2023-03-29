@@ -1,8 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router";
-
 import Form from "../form/form";
-import { MenuOption } from "../App/App";
 
 const LoginPage = lazy(() => import("../login/login"));
 const HomePage = lazy(() => import("../home/home"));
@@ -11,28 +9,33 @@ const AddMangaPage = lazy(() => import("../addManga/addManga"));
 const EditMangaPage = lazy(() => import("../editManga/editManga"));
 const DetailsPage = lazy(() => import("../detail/details"));
 
-type AppRouterProps = {
-  menuOptions: MenuOption[];
-};
-export function AppRouter({ menuOptions }: AppRouterProps) {
+// type AppRouterProps = {
+//   menuOptions: MenuOption[];
+// };
+export function AppRouter() {
+  // export function AppRouter({ menuOptions }: AppRouterProps) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path={"/"} element={<HomePage></HomePage>}></Route>
         <Route
-          path={menuOptions[0].path}
+          // path={menuOptions[0].path}
+          path={"/home"}
           element={<HomePage></HomePage>}
         ></Route>
         <Route
-          path={menuOptions[1].path}
+          // path={menuOptions[1].path}
+          path={"/login"}
           element={<LoginPage></LoginPage>}
         ></Route>
         <Route
-          path={menuOptions[2].path}
+          // path={menuOptions[2].path}
+          path={"/register"}
           element={<RegisterPage></RegisterPage>}
         ></Route>
         <Route
-          path={menuOptions[3].path}
+          // path={menuOptions[3].path}
+          path={"/add"}
           element={
             <AddMangaPage>
               <Form prop={true}></Form>
