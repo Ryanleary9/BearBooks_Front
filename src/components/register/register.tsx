@@ -3,10 +3,12 @@ import { useUser } from "../../hooks/user/use.users";
 import { UserStructure } from "../../models/user";
 import { UserRepo } from "../../services/user/users.api.repo";
 import "./register.scss";
+import { useNavigate } from "react-router";
 export default function Register() {
   const userRepo = useMemo(() => new UserRepo(), []);
 
   const { userRegister } = useUser(userRepo);
+  const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -24,12 +26,13 @@ export default function Register() {
     const profilePic = (inputs[4] as unknown as HTMLFormElement).files?.item(0);
     userRegister(userReg, profilePic);
     formData.reset();
+    navigate("/home");
   };
 
   return (
     <>
       <span className="register-form">
-        <h1>Register</h1>
+        <h1 className="create-title">Register</h1>
         <form onSubmit={handleSubmit} className="form-inputs">
           <label htmlFor="email">
             <input type="email" placeholder="Email" required id="email" />

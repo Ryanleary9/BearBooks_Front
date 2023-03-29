@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useNavigate } from "react-router";
 import "./form.scss";
+import Swal from "sweetalert2";
 
 type ConditionalLoading = { prop: boolean };
 export default function Form({ prop }: ConditionalLoading) {
@@ -36,6 +37,13 @@ export default function Form({ prop }: ConditionalLoading) {
       mangaCreate(newManga, userState.userLogged.token, coverImage);
       formData.reset();
       navigate("/home");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Manga has been created",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     };
 
     return (
@@ -117,10 +125,17 @@ export default function Form({ prop }: ConditionalLoading) {
     // const coverImage = (inputs2[5] as unknown as HTMLFormElement).files?.item(
     //   0
     // );
-    mangaUpdate(userState.userLogged, mangaState.mangaId, newManga2);
+    mangaUpdate(userState.userLogged.token, mangaState.mangaId, newManga2);
     formData.reset();
 
     navigate("/home");
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Manga has been updated",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   const manga = mangaState.mangas[0];

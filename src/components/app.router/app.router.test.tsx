@@ -29,7 +29,7 @@ describe("Given AppRouter", () => {
     render(
       <Provider store={store}>
         <Router initialEntries={[prop]} initialIndex={0}>
-          <AppRouter menuOptions={mockOptions}></AppRouter>
+          <AppRouter></AppRouter>
         </Router>
       </Provider>
     );

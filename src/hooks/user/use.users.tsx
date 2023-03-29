@@ -11,7 +11,6 @@ export function useUser(repo: UserRepo) {
 
   const userLogin = async (info: Partial<UserStructure>) => {
     try {
-      debugger;
       const data = await repo.create(info, "login");
       dispatch(saveUser(data.results[1]));
       dispatch(login(data.results[0]));

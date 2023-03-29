@@ -6,10 +6,6 @@ type MenuProps = {
   options: MenuOption[];
 };
 
-type ExtraProps = {
-  extraOptions: MenuOption[];
-};
-
 export const Menu = ({ options }: MenuProps) => {
   return (
     <>

@@ -13,25 +13,19 @@ const DetailsPage = lazy(() => import("../detail/details"));
 type AppRouterProps = {
   menuOptions: MenuOption[];
 };
-export function AppRouter({ menuOptions }: AppRouterProps) {
+export function AppRouter() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path={"/"} element={<HomePage></HomePage>}></Route>
+        <Route path={"/home"} element={<HomePage></HomePage>}></Route>
+        <Route path={"/login"} element={<LoginPage></LoginPage>}></Route>
         <Route
-          path={menuOptions[0].path}
-          element={<HomePage></HomePage>}
-        ></Route>
-        <Route
-          path={menuOptions[1].path}
-          element={<LoginPage></LoginPage>}
-        ></Route>
-        <Route
-          path={menuOptions[2].path}
+          path={"/register"}
           element={<RegisterPage></RegisterPage>}
         ></Route>
         <Route
-          path={menuOptions[3].path}
+          path={"/add"}
           element={
             <AddMangaPage>
               <Form prop={true}></Form>

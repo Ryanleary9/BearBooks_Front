@@ -7,6 +7,7 @@ import "./details.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import Swal from "sweetalert2";
 
 export default function Details() {
   const { id } = useParams();
@@ -25,8 +26,52 @@ export default function Details() {
   const deleteSubmit = () => {
     mangaDelete(userState.userLogged.token, manga.id);
     navigate("/home");
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Manga has been deleted",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
-
+  if (userState.loggedUser.role === "admin") {
+    return (
+      <>
+        <span className="outer-details-2">
+          <span className="outer-details">
+            <span className="details">
+              <img
+                src={manga.image}
+                alt={manga.name}
+                className="detail-image"
+              />
+              <span className="details-inner">
+                <span>
+                  <h2>Title: {manga.name}</h2>
+                  <p>Author: {manga.author}</p>
+                  <p>Category: {manga.category}</p>
+                  <p>Description: {manga.description}</p>
+                  <p>{manga.price} €</p>
+                </span>
+                <Link to={`/edit/${manga.id}`}>
+                  <button type="submit" className="edit-button">
+                    Edit
+                  </button>
+                </Link>
+                <button
+                  type="submit"
+                  className="edit-button"
+                  onClick={deleteSubmit}
+                >
+                  Delete
+                </button>
+              </span>
+            </span>
+          </span>
+        </span>
+      </>
+    );
+  }
   return (
     <>
       <span className="outer-details-2">
@@ -41,18 +86,6 @@ export default function Details() {
                 <p>Description: {manga.description}</p>
                 <p>{manga.price} €</p>
               </span>
-              <Link to={`/edit/${manga.id}`}>
-                <button type="submit" className="edit-button">
-                  Edit
-                </button>
-              </Link>
-              <button
-                type="submit"
-                className="edit-button"
-                onClick={deleteSubmit}
-              >
-                Delete
-              </button>
             </span>
           </span>
         </span>

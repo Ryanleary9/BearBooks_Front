@@ -57,8 +57,12 @@ export function useManga(repo: MangaRepo) {
     manga: Partial<Manga>
   ) => {
     try {
+      console.log(manga);
+      console.log(mangaId);
+      console.log(token);
       if (!mangaId) throw new Error("Manga ID is undefined");
       const mangaData = await repo.updateManga(token, mangaId, manga);
+      console.log(mangaData);
       dispatch(updateManga(mangaData.results[0]));
     } catch (error) {
       console.log((error as Error).message);
@@ -71,7 +75,7 @@ export function useManga(repo: MangaRepo) {
       await repo.deleteManga(token, mangaId);
       dispatch(deleteManga(mangaId));
     } catch (error) {
-      console.log((error as Error).message);
+      // console.log((error as Error).message);
     }
   };
 
