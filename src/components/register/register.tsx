@@ -4,6 +4,7 @@ import { UserStructure } from "../../models/user";
 import { UserRepo } from "../../services/user/users.api.repo";
 import "./register.scss";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 export default function Register() {
   const userRepo = useMemo(() => new UserRepo(), []);
 
@@ -27,6 +28,13 @@ export default function Register() {
     userRegister(userReg, profilePic);
     formData.reset();
     navigate("/home");
+    Swal.fire({
+      position: "center",
+      icon: "info",
+      title: "User has been registered",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (
