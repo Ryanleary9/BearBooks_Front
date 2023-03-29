@@ -25,41 +25,32 @@ const mockOptions: MenuOption[] = [
 ];
 
 describe("Given AppRouter", () => {
+  const mockRouter = (prop: string) => {
+    render(
+      <Provider store={store}>
+        <Router initialEntries={[prop]} initialIndex={0}>
+          <AppRouter menuOptions={mockOptions}></AppRouter>
+        </Router>
+      </Provider>
+    );
+  };
   describe("When the route is home", () => {
     test("Then we should navigate to home", async () => {
-      render(
-        <Provider store={store}>
-          <Router initialEntries={["/home"]} initialIndex={0}>
-            <AppRouter menuOptions={mockOptions}></AppRouter>
-          </Router>
-        </Provider>
-      );
+      mockRouter("/home");
       const element = await screen.findByRole("heading");
       expect(element).toBeInTheDocument();
     });
   });
   describe("When the selected route is login", () => {
     test("Then it should take us to login", async () => {
-      render(
-        <Provider store={store}>
-          <Router initialEntries={["/login"]} initialIndex={0}>
-            <AppRouter menuOptions={mockOptions}></AppRouter>
-          </Router>
-        </Provider>
-      );
+      mockRouter("/login");
       const element = await screen.findByRole("heading");
       expect(element).toBeInTheDocument();
     });
   });
   describe("When route is register", () => {
     test("Then we will navigate to register", async () => {
-      render(
-        <Provider store={store}>
-          <Router initialEntries={["/register"]} initialIndex={0}>
-            <AppRouter menuOptions={mockOptions}></AppRouter>
-          </Router>
-        </Provider>
-      );
+      mockRouter("/register");
       const element = await screen.findByRole("heading");
       expect(element).toBeInTheDocument();
     });
@@ -67,13 +58,7 @@ describe("Given AppRouter", () => {
 
   describe("When we select thr route Add manga", () => {
     test("Then we should go to Add manga page", async () => {
-      render(
-        <Provider store={store}>
-          <Router initialEntries={["/add"]} initialIndex={0}>
-            <AppRouter menuOptions={mockOptions}></AppRouter>
-          </Router>
-        </Provider>
-      );
+      mockRouter("/add");
       const element = await screen.findByRole("heading");
       expect(element).toBeInTheDocument();
     });
