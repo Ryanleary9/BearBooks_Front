@@ -40,14 +40,11 @@ export function useManga(repo: MangaRepo) {
 
   const mangaCreate = async (manga: Manga, token: string, image: File) => {
     try {
-      console.log("MANGA PARAMS", manga);
-
       if (!token) throw new Error("Not Authorized");
       const portada = await newMangaImage(manga, image);
       manga.image = portada;
 
       const newManga = await repo.createManga(token, manga);
-      console.log("HOOK NewManga", newManga);
       dispatch(createManga(newManga.results[0]));
     } catch (error) {
       console.log((error as Error).message);
@@ -61,9 +58,7 @@ export function useManga(repo: MangaRepo) {
   ) => {
     try {
       if (!mangaId) throw new Error("Manga ID is undefined");
-      console.log(token);
       const mangaData = await repo.updateManga(token, mangaId, manga);
-      console.log("MANGA DATA", mangaData);
       dispatch(updateManga(mangaData.results[0]));
     } catch (error) {
       console.log((error as Error).message);

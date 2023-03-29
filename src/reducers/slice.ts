@@ -24,7 +24,6 @@ export const userSlice = createSlice({
       state.users = [];
     },
     login(state, action: PayloadAction<UserStructure>) {
-      console.log("ACTION", action);
       (state.userLogged.token as UserStructure) = action.payload;
     },
     register(state, action: PayloadAction<UserStructure>) {

@@ -23,7 +23,6 @@ export default function Register() {
     };
     const profilePic = (inputs[4] as unknown as HTMLFormElement).files?.item(0);
     userRegister(userReg, profilePic);
-    console.log(userReg);
     formData.reset();
   };
 

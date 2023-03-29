@@ -8,7 +8,6 @@ const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
 export const newImage = async (info: Partial<UserStructure>, file?: File) => {
-  console.log("Firebase test");
   if (!file) {
     info.pfp =
       "https://firebasestorage.googleapis.com/v0/b/add-image-9a3cd.appspot.com/o/Avatar.png?alt=media&token=912b2430-9291-4ca1-a75a-ac8b2a746d5a";
@@ -19,6 +18,5 @@ export const newImage = async (info: Partial<UserStructure>, file?: File) => {
   await uploadBytes(storageRef, file);
 
   const imgUrl = await getDownloadURL(storageRef);
-  console.log({ imgUrl });
   return imgUrl;
 };
