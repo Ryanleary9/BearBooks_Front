@@ -4,7 +4,7 @@ import { RepoManga } from "./manga.interface";
 export class MangaRepo implements RepoManga<MangaServerResponse> {
   url: string;
   constructor() {
-    this.url = "http://localhost:4500/manga";
+    this.url = "https://bearbooks-final-project.onrender.com/manga";
   }
 
   async getAllMangas(): Promise<MangaServerResponse> {
