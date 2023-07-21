@@ -39,6 +39,9 @@ export default function Login() {
       <span>
         <div className="access-card">
           <h1 className="create-title">Login</h1>
+          <h2 className="Admin-account">Admin Account Example:</h2>
+          <p className="Admin-account">User: Admin@admin.es</p>
+          <p className="Admin-account">Password: 123</p>
           <form onSubmit={handelSubmit} className="form-inputs">
             <label htmlFor="email">
               <input type="email" placeholder="Email" required id="email" />
