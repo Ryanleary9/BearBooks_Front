@@ -4,7 +4,7 @@ import { Repo } from "./user.interface";
 export class UserRepo implements Repo<ServerResponse> {
   url?: string;
   constructor() {
-    this.url = "http://localhost:4500/users";
+    this.url = "https://bearbooks-backend.onrender.com/users";
   }
 
   async create(
