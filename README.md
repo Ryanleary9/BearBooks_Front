@@ -47,7 +47,7 @@ This will generate optimized static assets in the build directory.
 
 
 
-##Testing
+## Testing
 
 To run tests for the frontend, use the following command:
 
