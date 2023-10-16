@@ -43,8 +43,7 @@ To build the production-ready version of the frontend, use the following command
 npm run build
 ```
 
-This will generate optimized static assets in the build directory.
-
+This will generate optimized static assets in the build directory
 
 
 ## Testing
